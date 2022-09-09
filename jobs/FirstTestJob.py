@@ -9,7 +9,7 @@ class FirstTestJob(Job):
   )
   var_sleep = IntegerVar(
     default = 0,
-    description = "Seconds to sleep as a test."
+    description = "Seconds to sleep as a test.",
     label = "Sleep seconds"
   )
   var_bool = BooleanVar(
@@ -59,4 +59,4 @@ class FirstTestJob(Job):
     self.log_debug(msg)
 
   def post_run():
-    self.log("Post run func."
+    self.log("Post run func.")
