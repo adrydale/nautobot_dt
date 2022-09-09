@@ -1,3 +1,5 @@
+from time import sleep
+
 from nautobot.extras.jobs import Job, StringVar, IntegerVar, BooleanVar
 from nautobot.extras.jobs import ChoiceVar
 
@@ -35,17 +37,18 @@ class FirstTestJob(Job):
     self.log("Job start")
     self.log_debug("Degbugging log")
     self.log_success("Success log")
-    self.log(f"Input - Text var: {var_text}")
-    self.log(f"Sleeping for {var_sleep} seconds.")
+    self.log(f"Input - Text var: {self.var_text}")
+    self.log(f"Sleeping for {self.var_sleep} seconds.")
+    sleep(self.var_sleep)
     self.log_success("Done!")
-    if var_bool:
+    if self.var_bool:
       self.log_success("Boolean var was True!")
     else:
       self.log_failure("Boolean var was False!")
-    if var_choice == "10":
-      self.log_warning(f"Warning: Poor VLAN choice: {var_choice}")
+    if self.var_choice == "10":
+      self.log_warning(f"Warning: Poor VLAN choice: {self.var_choice}")
     else:
-      self.log_success(f"Success: Good VLAN choice: {var_choice}")
+      self.log_success(f"Success: Good VLAN choice: {self.var_choice}")
     self.log("Job complete")
 
   def test_02():
