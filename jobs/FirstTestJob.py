@@ -37,18 +37,18 @@ class FirstTestJob(Job):
     self.log("Job start")
     self.log_debug("Degbugging log")
     self.log_success("Success log")
-    self.log(f"Input - Text var: {self.var_text}")
-    self.log(f"Sleeping for {self.var_sleep} seconds.")
-    sleep(self.var_sleep)
+    self.log(f"Input - Text var: {data.get('var_text')}")
+    self.log(f"Sleeping for {data.get('var_sleep')} seconds.")
+    sleep(data.get('var_sleep'))
     self.log_success("Done!")
-    if self.var_bool:
+    if data.get('var_bool'):
       self.log_success("Boolean var was True!")
     else:
       self.log_failure("Boolean var was False!")
-    if self.var_choice == "10":
-      self.log_warning(f"Warning: Poor VLAN choice: {self.var_choice}")
+    if data.get('var_choice') == "10":
+      self.log_warning(f"Warning: Poor VLAN choice: {data.get('var_choice')}")
     else:
-      self.log_success(f"Success: Good VLAN choice: {self.var_choice}")
+      self.log_success(f"Success: Good VLAN choice: {data.get('var_choice')}")
     self.log("Job complete")
 
   def test_02():
