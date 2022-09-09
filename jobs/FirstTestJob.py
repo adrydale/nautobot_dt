@@ -51,15 +51,15 @@ class FirstTestJob(Job):
       self.log_success(f"Success: Good VLAN choice: {data.get('var_choice')}")
     self.log("Job complete")
 
-  def test_02():
+  def test_02(self):
     msg = "Test02 function run"
     self.log(msg)
     self.log_debug(msg)
 
-  def test_01():
+  def test_01(self):
     msg = "Test01 function run"
     self.log(msg)
     self.log_debug(msg)
 
-  def post_run():
+  def post_run(self):
     self.log("Post run func.")
