@@ -43,4 +43,6 @@ class Ex04_AccessingSecrets(Job):
     self.log_info("Job start")
     secret = Secret.objects.get(slug="example_secret_01")
     val = secret.get_value()
-    self.log_success(f"The value is {val}")
+    if data.get("var_display_secret"):
+      self.log_warning("REMINDER: You should not print secrets to job output.")
+      self.log_success(f"The value is {val}")
