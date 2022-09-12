@@ -2,6 +2,8 @@
 * Pull Nautobot objects
     * Sites
     * Devices
+    * Job that pulls devices/sites for input
+    * Job that pulls filtered devices/sites for input
     * Users?
 * Meraki API example
 * Jobs README.md
