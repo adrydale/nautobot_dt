@@ -27,8 +27,8 @@ class Ex02_Inputs(Job):
   )
   var_bool = BooleanVar(
     default = True,
-    description = "True/False test",
-    label = "Boolean test"
+    description = "This will cause the job to succeed or fail (intentionally)",
+    label = "True/False boolean example"
   )
   var_choice = ChoiceVar(
     description = "Choice selection test",
@@ -56,12 +56,8 @@ class Ex02_Inputs(Job):
     # This job gives examples on how to log data and use inputs from the job
     # form data.
 
-    # Basic logging options
+    # Basic log
     self.log_info("Job start")
-    self.log("Default log")
-    self.log_debug("Degbugging log")
-    self.log_success("Success log")
-    self.log_warning("Warning log")
 
     # By using data.get('VAR_NAME') you can access the inputted user data.
     self.log(f"Input - Text var: {data.get('var_text')}")

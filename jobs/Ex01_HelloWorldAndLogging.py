@@ -17,5 +17,18 @@ class Ex01_HelloWorld(Job):
 
   def run(self, data, commit):
     # This is a simple job that outputs "Hello world" to the job output/result
-    # data.
+    # data. It also outlines several different logging levels
     self.log_info("Hello world!")
+
+    # Basic logging options
+    self.log("Default log")
+    self.log_info("Informational log")
+    self.log_debug("Debugging log")
+    self.log_success("Success log")
+    self.log_warning("Warning log")
+
+    # This is an example of a failure log. It is commented out as a single
+    # failure log will cause the job to report as failed. Refer to Example 02
+    # for an example of a failure log. There is an option to cause the job to
+    # fail.
+    #self.log_failure("Failure log")
