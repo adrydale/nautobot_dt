@@ -1,6 +1,6 @@
 from nautobot.extras.jobs import Job
 
-class Example01_HelloWorld(Job):
+class Ex01_HelloWorld(Job):
   def Meta():
     name = "Example 01 - Hello World"
     description = """

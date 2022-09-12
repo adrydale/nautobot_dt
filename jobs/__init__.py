@@ -1,4 +1,4 @@
-# Example 01 - Hello world
-from .Example01_HelloWorld.Example01_HelloWorld import Example01_HelloWorld
+'# Example 01 - Hello world
+from .Example01_HelloWorld.Ex01_HW import Ex01_HelloWorld
 
 from .FirstTestJob import FirstTestJob
