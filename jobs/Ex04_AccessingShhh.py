@@ -8,7 +8,7 @@ from nautobot.extras.jobs import Job
 name = "AD Example jobs"
 
 # This is the job being imported.
-class Ex04_AccessingSecrets(Job):
+class Ex04_AccessingShhh(Job):
   var_display_secret = BooleanVar(
     default = False,
     description = """
