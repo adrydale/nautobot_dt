@@ -1,6 +1,5 @@
 from nautobot.extras.jobs import Job
 from nautobot.extras.jobs import BooleanVar
-from nautobot.extras.secrets.exceptions import SecretError
 
 # These imports are the type of inputs that are being used in this job.
 from nautobot.extras.models.secrets import Secret
@@ -46,7 +45,7 @@ class Ex04_AccessingSecrets(Job):
     # This will pull the secret from Nautobot
     try:
       secret = Secret.objects.get(slug="example_secret_01")
-    except SecretError:
+    except Secret.DoesNotExist:
       self.log_failure("Error: \"example_secret_01\" isn't setup.")
       return
 
