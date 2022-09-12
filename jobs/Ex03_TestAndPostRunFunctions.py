@@ -51,6 +51,8 @@ class Ex03_TestAndPostRunFunctions(Job):
     else:
       self.log_success("The induce failure checkbox was not checked.")
 
+    self.log("Job complete")
+
   # All test_* functions will be implicitly called *after* the run() function
   # ONLY if there is not a failure. If there is a failure, these are skipped.
   # These are processed in the order they are defined.
