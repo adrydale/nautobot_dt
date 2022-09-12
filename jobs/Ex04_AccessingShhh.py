@@ -18,13 +18,13 @@ class Ex04_AccessingSecrets(Job):
 
       Secrets were added in Nautobot version 1.2.0.
     """,
-    label = "Display example secret"
+    label = "Display example shhh"
   )
 
   # The Meta class within the job class is used for job extensible data
   class Meta():
     # This is what the job will be named in the UI.
-    name = "Example 04 - Accessing Secrets"
+    name = "Example 04 - Accessing Shhh"
     # The first line of the description will be displayed but other lines will
     #   only be displayed on job details.
     description = """
