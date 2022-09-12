@@ -6,3 +6,6 @@ from Ex01_HW import Ex01_HelloWorld
 
 # Example 02 - Inputs
 from Ex02_Inputs import Ex02_Inputs
+
+# Example 03 - Showcasing the test_*() and post_run() functions.
+from Ex03_TestAndPostRunFunctions import Ex03_TestAndPostRunFunctions
