@@ -41,8 +41,16 @@ class Ex04_AccessingSecrets(Job):
     # This job shows how to access Nautobot secrets.
 
     self.log_info("Job start")
+
+    # This will pull the secret from Nautobot
     secret = Secret.objects.get(slug="example_secret_01")
+    self.log_debug(f"Secret is: {secret}")
+    # Get the raw value of the secret instead of the secret object
     val = secret.get_value()
+    self.log_debug(f"Secret length is {len(val)}")
+
     if data.get("var_display_secret"):
       self.log_warning("REMINDER: You should not print secrets to job output.")
       self.log_success(f"The value is {val}")
+
+    self.log_success("Job completed.")
