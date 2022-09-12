@@ -2,7 +2,7 @@ from nautobot.extras.jobs import Job
 from nautobot.extras.jobs import BooleanVar
 
 # These imports are the type of inputs that are being used in this job.
-#from nautobot.extras.models.secrets import Secret
+from nautobot.extras.models.secrets import Secret
 
 # This is the job grouping within the Nautobot UI.
 name = "AD Example jobs"
