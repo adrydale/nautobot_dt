@@ -2,7 +2,7 @@
 from nautobot.extras.jobs import Job
 
 # These imports are the type of inputs that are being used in this job.
-from nautobot.extras.models.secrets import Secret
+#from nautobot.extras.models.secrets import Secret
 
 # This is the job grouping within the Nautobot UI.
 name = "AD Example jobs"
@@ -41,6 +41,6 @@ class Ex04_AccessingSecrets(Job):
     # This job shows how to access Nautobot secrets.
 
     self.log_info("Job start")
-    secret = Secret.objects.get(slug="example_secret_01")
-    val = secret.get_value()
-    self.log_success(f"The value is {val}")
+    #secret = Secret.objects.get(slug="example_secret_01")
+    #val = secret.get_value()
+    #self.log_success(f"The value is {val}")
