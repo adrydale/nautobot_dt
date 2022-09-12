@@ -8,7 +8,7 @@ from Ex01_HW import Ex01_HelloWorld
 from Ex02_Inputs import Ex02_Inputs
 
 # Example 03 - Showcasing the test_*() and post_run() functions.
-from Ex03_TestAndPostRunFunctions import Ex03_TestAndPostRunFunctions
+#from Ex03_TestAndPostRunFunctions import Ex03_TestAndPostRunFunctions
 
 # Example 04 - Accessing secrets
-from Ex04_AccessingSecrets import Ex04_AccessingSecrets
+#from Ex04_AccessingSecrets import Ex04_AccessingSecrets
