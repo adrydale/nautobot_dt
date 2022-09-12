@@ -12,6 +12,9 @@ class Ex03_TestAndPostRunFunctions(Job):
   # complete clean-ups or other efforts in the event that the run() function
   # fails.
 
+  # Of note, test_*() functions are NOT run on job failure but the post_run()
+  # function is.
+
   # This boolean var is used to raise an exception within the fun() function to
   # show that the test_*() and post_run() functions are still processed.
   var_induce_failure = BooleanVar(
@@ -30,8 +33,11 @@ class Ex03_TestAndPostRunFunctions(Job):
       Demonstrate the test_*() and post_run() functions.
 
       These functions are run after the run() function in order to validate the
-      data/objects/state and complete clean-ups or other efforts in the event 
-      that the run() function
+      data/objects/state and complete clean-ups or other efforts in the event
+      that the run() function.
+
+      Of note, test_*() functions are NOT run on job failure but the post_run()
+      function is.
     """
 
   def run(self, data, commit):
@@ -40,9 +46,13 @@ class Ex03_TestAndPostRunFunctions(Job):
     induce_failure = data.get('var_induce_failure')
     self.log(f"Checkbox to induce a failure was set to {induce_failure}")
     if induce_failure:
+      self.log_debug("The induce failure box was checked; raising exception.")
       raise ValueError("User requested to induce a failure (intentional).")
+    else:
+      self.log_success("The induce failure checkbox was not checked.")
 
-  # All test_* functions will be implicitly called *after* the run() function.
+  # All test_* functions will be implicitly called *after* the run() function
+  # ONLY if there is not a failure. If there is a failure, these are skipped.
   # These are processed in the order they are defined.
   # test_ functions are OPTIONAL
   def test_02(self):
@@ -56,5 +66,6 @@ class Ex03_TestAndPostRunFunctions(Job):
   # Finally, the post_run() will always run after the run() and test_*()
   # functions are run regardless of any failures. This method can be used to
   # ensure clean-ups are completed in all cases.
+  # The post_run() function is OPTIONAL
   def post_run(self):
     self.log("Post run func.")
