@@ -57,9 +57,11 @@ class Ex02_Inputs(Job):
     # form data.
 
     # Basic logging options
-    self.log("Job start")
+    self.log_info("Job start")
+    self.log("Default log")
     self.log_debug("Degbugging log")
     self.log_success("Success log")
+    self.log_warning("Warning log")
 
     # By using data.get('VAR_NAME') you can access the inputted user data.
     self.log(f"Input - Text var: {data.get('var_text')}")
@@ -82,5 +84,5 @@ class Ex02_Inputs(Job):
       self.log_warning(f"Warning: Poor VLAN choice: {data.get('var_choice')}")
     else:
       self.log_success(f"Success: Good VLAN choice: {data.get('var_choice')}")
-    self.log("Job complete")
+    self.log_info("Job complete")
 

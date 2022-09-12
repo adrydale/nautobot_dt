@@ -41,17 +41,17 @@ class Ex03_TestAndPostRunFunctions(Job):
     """
 
   def run(self, data, commit):
-    self.log("Job start")
+    self.log_info("Job start")
 
     induce_failure = data.get('var_induce_failure')
-    self.log(f"Checkbox to induce a failure was set to {induce_failure}")
+    self.log_info(f"Checkbox to induce a failure was set to {induce_failure}")
     if induce_failure:
       self.log_debug("The induce failure box was checked; raising exception.")
       raise ValueError("User requested to induce a failure (intentional).")
     else:
       self.log_success("The induce failure checkbox was not checked.")
 
-    self.log("Job complete")
+    self.log_info("Job complete")
 
   # All test_* functions will be implicitly called *after* the run() function
   # ONLY if there is not a failure. If there is a failure, these are skipped.
@@ -70,4 +70,4 @@ class Ex03_TestAndPostRunFunctions(Job):
   # ensure clean-ups are completed in all cases.
   # The post_run() function is OPTIONAL
   def post_run(self):
-    self.log("Post run func.")
+    self.log_info("Post run func.")

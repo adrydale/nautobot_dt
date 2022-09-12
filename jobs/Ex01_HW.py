@@ -18,4 +18,4 @@ class Ex01_HelloWorld(Job):
   def run(self, data, commit):
     # This is a simple job that outputs "Hello world" to the job output/result
     # data.
-    self.log("Hello world!")
+    self.log_info("Hello world!")
