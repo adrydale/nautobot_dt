@@ -8,22 +8,22 @@ name = "AD Example jobs"
 
 # This is the job being imported.
 class Ex04_AccessingSecrets(Job):
-  #var_display_secret = BooleanVar(
-  #  default = False,
-  #  description = """
-  #    Display the example secret in the job result/output. It is NOT recommended
-  #    to do this for any actual secret. Job result data is stored and accessable
-  #    to authorized users in plain text.
-  #
-  #    Secrets were added in Nautobot version 1.2.0.
-  #  """,
-  #  label = "Display example shhh"
-  #)
+  var_display_secret = BooleanVar(
+    default = False,
+    description = """
+      Display the example secret in the job result/output. It is NOT recommended
+      to do this for any actual secret. Job result data is stored and accessable
+      to authorized users in plain text.
+
+      Secrets were added in Nautobot version 1.2.0.
+    """,
+    label = "Display example shhh"
+  )
 
   # The Meta class within the job class is used for job extensible data
   class Meta():
     # This is what the job will be named in the UI.
-    name = "Example 04 - Accessing Shhh"
+    name = "Example 04 - Accessing Secrets"
     # The first line of the description will be displayed but other lines will
     #   only be displayed on job details.
     #description = """
