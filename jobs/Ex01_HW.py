@@ -1,7 +1,7 @@
 from nautobot.extras.jobs import Job
 
 # This is the job grouping within the Nautobot UI.
-name = "Example jobs"
+name = "AD Example jobs"
 
 # This is the job being imported.
 class Ex01_HelloWorld(Job):

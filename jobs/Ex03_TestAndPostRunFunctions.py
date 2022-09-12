@@ -3,7 +3,7 @@ from nautobot.extras.jobs import Job
 from nautobot.extras.jobs import BooleanVar
 
 # This is the job grouping within the Nautobot UI.
-name = "Example jobs"
+name = "AD Example jobs"
 
 # This is the job being imported.
 class Ex03_TestAndPostRunFunctions(Job):
