@@ -3,6 +3,8 @@ from time import sleep
 from nautobot.extras.jobs import Job, StringVar, IntegerVar, BooleanVar
 from nautobot.extras.jobs import ChoiceVar
 
+name = "Example jobs"
+
 class Ex02_Inputs(Job):
   var_text = StringVar(
     default = "Default value",
