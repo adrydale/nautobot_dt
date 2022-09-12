@@ -1,5 +1,6 @@
 from nautobot.extras.jobs import Job
 from nautobot.extras.jobs import BooleanVar
+from nautobot.extras.secrets.exceptions import SecretError
 
 # These imports are the type of inputs that are being used in this job.
 from nautobot.extras.models.secrets import Secret
@@ -18,7 +19,7 @@ class Ex04_AccessingSecrets(Job):
 
       Secrets were added in Nautobot version 1.2.0.
     """,
-    label = "Display example shhh"
+    label = "Display example secret"
   )
 
   # The Meta class within the job class is used for job extensible data
@@ -43,11 +44,19 @@ class Ex04_AccessingSecrets(Job):
     self.log_info("Job start")
 
     # This will pull the secret from Nautobot
-    secret = Secret.objects.get(slug="example_secret_01")
-    self.log_debug(f"Secret is: {secret}")
+    try:
+      secret = Secret.objects.get(slug="example_secret_01")
+    except SecretError:
+      self.log_failure("Error: \"example_secret_01\" isn't setup.")
+      return
+
+    # The printed value of the secret is the secret NAME
+    self.log_debug(f"The name of the secret object is: {secret}")
     # Get the raw value of the secret instead of the secret object
     val = secret.get_value()
-    self.log_debug(f"Secret length is {len(val)}")
+
+    self.log_success("Secret value retreived!")
+    self.log_debug(f"Secret value length is {len(val)}")
 
     if data.get("var_display_secret"):
       self.log_warning("REMINDER: You should not print secrets to job output.")
