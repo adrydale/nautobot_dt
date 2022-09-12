@@ -39,7 +39,7 @@ class Ex02_Inputs(Job):
   # The Meta class within the job class is used for job extensible data
   class Meta():
     # This is what the job will be named in the UI.
-    name = "First test job"
+    name = "Example 02 - Inputs"
     # The first line of the description will be displayed but other lines will
     #   only be displayed on job details.
     description = """
