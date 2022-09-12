@@ -84,19 +84,3 @@ class Ex02_Inputs(Job):
       self.log_success(f"Success: Good VLAN choice: {data.get('var_choice')}")
     self.log("Job complete")
 
-  # All test_* functions will be implicitly called *after* the run() function.
-  # These are processed in the order they are defined.
-  # test_ functions are OPTIONAL
-  def test_02(self):
-    msg = "Test02 function run"
-    self.log(msg)
-
-  def test_01(self):
-    msg = "Test01 function run"
-    self.log_debug(msg)
-
-  # Finally, the post_run() will always run after the run() and test_*()
-  # functions are run regardless of any failures. This method can be used to
-  # ensure clean-ups are completed in all cases.
-  def post_run(self):
-    self.log("Post run func.")
