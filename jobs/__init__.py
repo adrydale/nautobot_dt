@@ -9,3 +9,6 @@ from Ex02_Inputs import Ex02_Inputs
 
 # Example 03 - Showcasing the test_*() and post_run() functions.
 from Ex03_TestAndPostRunFunctions import Ex03_TestAndPostRunFunctions
+
+# Exanple 04 - Accessing secrets
+from Ex04_AccessingSecrets import Ex04_AccessingSecrets
