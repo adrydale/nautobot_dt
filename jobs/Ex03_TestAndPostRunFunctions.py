@@ -41,7 +41,7 @@ class Ex03_TestAndPostRunFunctions(Job):
     """
 
   def run(self, data, commit):
-    self.log_info("Job start")
+    self.log_info("Job start - Ex03")
 
     induce_failure = data.get('var_induce_failure')
     self.log_info(f"Checkbox to induce a failure was set to {induce_failure}")
