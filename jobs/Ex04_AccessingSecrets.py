@@ -7,18 +7,18 @@ from nautobot.extras.jobs import Job
 name = "AD Example jobs"
 
 # This is the job being imported.
-class Ex04_AccessingShhh(Job):
-  var_display_secret = BooleanVar(
-    default = False,
-    description = """
-      Display the example secret in the job result/output. It is NOT recommended
-      to do this for any actual secret. Job result data is stored and accessable
-      to authorized users in plain text.
-
-      Secrets were added in Nautobot version 1.2.0.
-    """,
-    label = "Display example shhh"
-  )
+class Ex04_AccessingSecrets(Job):
+  #var_display_secret = BooleanVar(
+  #  default = False,
+  #  description = """
+  #    Display the example secret in the job result/output. It is NOT recommended
+  #    to do this for any actual secret. Job result data is stored and accessable
+  #    to authorized users in plain text.
+  #
+  #    Secrets were added in Nautobot version 1.2.0.
+  #  """,
+  #  label = "Display example shhh"
+  #)
 
   # The Meta class within the job class is used for job extensible data
   class Meta():
@@ -26,15 +26,15 @@ class Ex04_AccessingShhh(Job):
     name = "Example 04 - Accessing Shhh"
     # The first line of the description will be displayed but other lines will
     #   only be displayed on job details.
-    description = """
-      This example shows how to access Nautobot secrets.
-
-      It is assumed that the Nautobot secret "example_secret_01" is already
-      setup within Nautobot. Please refer to the Nautobot documentation for
-      details on how to add a secret.
-
-      https://nautobot.readthedocs.io/en/stable/core-functionality/secrets/
-    """
+    #description = """
+    #  This example shows how to access Nautobot secrets.
+    #
+    #  It is assumed that the Nautobot secret "example_secret_01" is already
+    #  setup within Nautobot. Please refer to the Nautobot documentation for
+    #  details on how to add a secret.
+    #
+    #  https://nautobot.readthedocs.io/en/stable/core-functionality/secrets/
+    #"""
 
   def run(self, data, commit):
     # This job shows how to access Nautobot secrets.
