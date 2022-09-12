@@ -25,8 +25,8 @@ class Ex04_AccessingSecrets(Job):
   class Meta():
     # This is what the job will be named in the UI.
     name = "Example 04 - Accessing Secrets"
-     The first line of the description will be displayed but other lines will
-       only be displayed on job details.
+    # The first line of the description will be displayed but other lines will
+    # only be displayed on job details.
     description = """
       This example shows how to access Nautobot secrets.
 
