@@ -9,3 +9,4 @@
     * Documentation links
     * Slack link
     * Secret creation explanation
+    * Git repo add for these jobs (root?)
