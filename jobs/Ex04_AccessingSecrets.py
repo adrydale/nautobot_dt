@@ -14,7 +14,6 @@ class Ex04_AccessingSecrets(Job):
       Display the example secret in the job result/output. It is NOT recommended
       to do this for any actual secret. Job result data is stored and accessable
       to authorized users in plain text.
-
       Secrets were added in Nautobot version 1.2.0.
     """,
     label = "Display example shhh"
