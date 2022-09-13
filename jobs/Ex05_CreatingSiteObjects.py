@@ -20,9 +20,8 @@ class Ex05_CreatingSiteObjects(Job):
     label = "Site Name"
   )
 
-  # This pulls in the statuses in Nautobot then uses query_params to filter down
-  # the types of objects so that only statuses that can be applied to Site
-  # objects are available
+  # Add a variable for the site status to user inputs. This is filtered to only
+  # statuses that can be applied to sites.
   site_status = ObjectVar(
     description = "Set the configured status of the site",
     label = "Site status",
@@ -52,9 +51,7 @@ class Ex05_CreatingSiteObjects(Job):
     self.log_info(f"Site name: {site_name}")
     self.log_info(f"Site status: {site_status}")
 
-    # This checks to see if a site already exists with the same name before
-    # trying to create one. An exception/error will be generated if a site
-    # exists and we try to create a new one with the same name.
+    # Quick check to see if the site already exists
     try:
       # Check sites for sites with the same inputted name
       existing_site = Site.objects.get(name=site_name)
@@ -72,6 +69,7 @@ class Ex05_CreatingSiteObjects(Job):
       # continue on with the rest of the job (pass)
       pass
 
+    # This will actually create the site
     new_site = Site.objects.create(name=site_name, status=site_status)
 
     # Log the site
