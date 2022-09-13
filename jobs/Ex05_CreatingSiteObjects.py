@@ -60,7 +60,8 @@ class Ex05_CreatingSiteObjects(Job):
     try:
       new_site = Site.objects.create(name=site_name, status=site_status)
     except IntegrityError:
-      self.log_failure("Error! The site \"{site_name}\" already exists!")
+      self.log_failure(f"Error! The site \"{site_name}\" already exists!")
+      return
 
     # Log the site
     self.log_success(obj=new_site, message=f"Site \"{site_name}\" created!")
