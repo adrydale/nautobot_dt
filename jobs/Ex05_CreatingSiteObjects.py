@@ -67,7 +67,7 @@ class Ex05_CreatingSiteObjects(Job):
       # A return statement will stop further job processing (but will still run
       # test_*() and post_run() functions).
       return
-    except Site.DoesNotExist
+    except Site.DoesNotExist:
       # This would mean that the site does not currently exist so we will
       # continue on with the rest of the job (pass)
       pass
