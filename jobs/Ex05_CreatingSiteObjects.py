@@ -46,9 +46,14 @@ class Ex05_CreatingSiteObjects(Job):
     # Basic log
     self.log_info("Job start")
 
+    # Store the inputs and log them
     site_name = data.get("site_name")
     site_status = data.get("site_status")
-    self.log_debug(f"Site name: {site_name}")
-    self.log_debug(f"Site status: {site_status}")
+    self.log_info(f"Site name: {site_name}")
+    self.log_info(f"Site status: {site_status}")
 
+    # Create the site
     new_site = Site.objects.create(name=site_name, status=site_status)
+
+    # Log the site
+    self.log_success(obj=site, message=f"Site \"{site_name}\" created!")
