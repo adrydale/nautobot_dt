@@ -21,10 +21,11 @@ class Ex05_CreatingSiteObjects(Job):
 
   site_status = ObjectVar(
     #default = "Active",
-    description="The status of the site",
-    label="Site status",
-    model=Status,
-    display_field="name"
+    description = "Set the configured status of the site",
+    label = "Site status",
+    model = Status,
+    query_params = {"content_types": ["site"]}
+    display_field = "name"
   )
 
   # The Meta class within the job class is used for job extensible data
