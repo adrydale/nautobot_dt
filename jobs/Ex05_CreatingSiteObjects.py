@@ -48,7 +48,7 @@ class Ex05_CreatingSiteObjects(Job):
   # This will be run when the job starts.
   def run(self, data, commit):
     # Basic log
-    self.log_info("Job start")
+    self.log_info("Site creation job example")
 
     # Store the inputs and log them
     site_name = data.get("site_name")
@@ -60,7 +60,9 @@ class Ex05_CreatingSiteObjects(Job):
     try:
       new_site = Site.objects.create(name=site_name, status=site_status)
     except IntegrityError:
-      self.log_failure(f"Error! The site \"{site_name}\" already exists!")
+      error_msg = f"Error! The site \"{site_name}\" already exists!"
+      existing_site = Site.objects.get(name=site_name)
+      self.log_failure(obj=existing_site, message = error_msg)
       return
 
     # Log the site
