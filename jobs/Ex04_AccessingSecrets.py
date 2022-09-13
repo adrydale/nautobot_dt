@@ -1,7 +1,10 @@
+# Importing Job from nautobot.extras.jobs is required for any Nautobot job
 from nautobot.extras.jobs import Job
+
+# This import is to enable the user input variable(s)
 from nautobot.extras.jobs import BooleanVar
 
-# These imports are the type of inputs that are being used in this job.
+# This is the import that is necessary to access Nautobot secrets
 from nautobot.extras.models.secrets import Secret
 
 # This is the job grouping within the Nautobot UI.
