@@ -24,7 +24,7 @@ class Ex05_CreatingSiteObjects(Job):
     description = "Set the configured status of the site",
     label = "Site status",
     model = Status,
-    query_params = {"content_types": [Site]},
+    query_params = {"content_types": "dcim.site"},
     display_field = "name"
   )
 
