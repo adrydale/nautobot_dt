@@ -5,7 +5,8 @@ from nautobot.extras.jobs import Job
 from nautobot.extras.jobs import StringVar, ObjectVar
 
 # Importing models allow us to work with/manipulate objects of these types
-from nautobot.dcim.models import Site, Status
+from nautobot.dcim.models import Site
+from nautobot.extras.models import Status
 
 # This is the job grouping within the Nautobot UI.
 name = "AD Example jobs"
