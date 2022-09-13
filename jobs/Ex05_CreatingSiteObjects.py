@@ -20,7 +20,7 @@ class Ex05_CreatingSiteObjects(Job):
   )
 
   site_status = ObjectVar(
-    default = "Active",
+    #default = "Active",
     description="The status of the site",
     label="Site status",
     model=Status,
