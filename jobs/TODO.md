@@ -1,4 +1,6 @@
 ## Jobs to-do ##
+* Create Nautobot objects
+    * Site + device
 * Pull Nautobot objects
     * Sites
     * Devices
