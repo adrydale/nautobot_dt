@@ -13,14 +13,17 @@ name = "AD Example jobs"
 
 # This is the job being imported.
 class Ex05_CreatingSiteObjects(Job):
+  # This will be a simple string for the site name
   site_name = StringVar(
     default = "Nautobot Examples - Example Site",
     description = "Name of the site to be created",
     label = "Site Name"
   )
 
+  # This pulls in the statuses in Nautobot then uses query_params to filter down
+  # the types of objects so that only statuses that can be applied to Site
+  # objects are available
   site_status = ObjectVar(
-    #default = "Active",
     description = "Set the configured status of the site",
     label = "Site status",
     model = Status,
@@ -46,4 +49,6 @@ class Ex05_CreatingSiteObjects(Job):
     site_name = data.get("site_name")
     site_status = data.get("site_status")
     self.log_debug(f"Site name: {site_name}")
-    slef.log_debug(f"Site status: {site_status}")
+    self.log_debug(f"Site status: {site_status}")
+
+    new_site = Site.objects.create(name=site_name, status=site_status)
