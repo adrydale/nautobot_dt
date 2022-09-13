@@ -8,10 +8,6 @@ from nautobot.extras.jobs import StringVar, ObjectVar
 from nautobot.dcim.models import Site
 from nautobot.extras.models import Status
 
-# This import is for the error that would be generated if we try to create a
-# site that already exists
-from django.db.utils import IntegrityError
-
 # This is the job grouping within the Nautobot UI.
 name = "AD Example jobs"
 
@@ -56,14 +52,18 @@ class Ex05_CreatingSiteObjects(Job):
     self.log_info(f"Site name: {site_name}")
     self.log_info(f"Site status: {site_status}")
 
-    # Create the site
-    try:
-      new_site = Site.objects.create(name=site_name, status=site_status)
-    except IntegrityError:
+    # This checks to see if a site already exists with the same name before
+    # trying to create one. An exception/error will be generated if a site
+    # exists and we try to create a new one with the same name.
+    existing_site = Site.objects.get(name=site_name)
+    if existing_site:
       error_msg = f"Error! The site \"{site_name}\" already exists!"
-      existing_site = Site.objects.get(name=site_name)
       self.log_failure(obj=existing_site, message = error_msg)
+      # The return statement will stop the job from processing any further. An
+      # error would be generated as a site cannot be created with the same name
       return
+
+    new_site = Site.objects.create(name=site_name, status=site_status)
 
     # Log the site
     self.log_success(obj=new_site, message=f"Site \"{site_name}\" created!")
