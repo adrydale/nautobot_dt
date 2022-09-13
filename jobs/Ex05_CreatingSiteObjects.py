@@ -55,13 +55,22 @@ class Ex05_CreatingSiteObjects(Job):
     # This checks to see if a site already exists with the same name before
     # trying to create one. An exception/error will be generated if a site
     # exists and we try to create a new one with the same name.
-    existing_site = Site.objects.get(name=site_name)
-    if existing_site:
+    try:
+      # Check sites for sites with the same inputted name
+      existing_site = Site.objects.get(name=site_name)
+
+      # The above will either error out if there are no matches or it will
+      # continue on to the next lines in this try block.
       error_msg = f"Error! The site \"{site_name}\" already exists!"
       self.log_failure(obj=existing_site, message = error_msg)
-      # The return statement will stop the job from processing any further. An
-      # error would be generated as a site cannot be created with the same name
+
+      # A return statement will stop further job processing (but will still run
+      # test_*() and post_run() functions).
       return
+    except Site.DoesNotExist
+      # This would mean that the site does not currently exist so we will
+      # continue on with the rest of the job (pass)
+      pass
 
     new_site = Site.objects.create(name=site_name, status=site_status)
 
