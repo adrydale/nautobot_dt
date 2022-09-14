@@ -61,8 +61,8 @@ class Ex05_CreatingSiteObjects(Job):
       error_msg = f"Error! The site \"{site_name}\" already exists!"
       self.log_failure(obj=existing_site, message = error_msg)
 
-      # A return statement will stop further job processing (but will still run
-      # test_*() and post_run() functions).
+      # A return statement will stop further job processing. Because there was a
+      # failure log, test_*() functions will not run but a post_run() would.
       return
     except Site.DoesNotExist:
       # This would mean that the site does not currently exist so we will
@@ -72,5 +72,6 @@ class Ex05_CreatingSiteObjects(Job):
     # This will actually create the site
     new_site = Site.objects.create(name=site_name, status=site_status)
 
-    # Log the site
+    # With the new site created, we'll create a log with a hyperlinked reference
+    # to the site object.
     self.log_success(obj=new_site, message=f"Site \"{site_name}\" created!")
