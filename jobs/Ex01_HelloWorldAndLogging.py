@@ -1,7 +1,7 @@
 from nautobot.extras.jobs import Job
 
 # This is the job grouping within the Nautobot UI.
-name = "AD Example jobs"
+name = "Example Git Repo Jobs"
 
 # This is the job being imported. We include "Job" in the class definition
 # because our new class/Nautobot job will extend the built in functions that

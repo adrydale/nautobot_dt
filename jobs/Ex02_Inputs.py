@@ -8,7 +8,7 @@ from nautobot.extras.jobs import Job
 from nautobot.extras.jobs import StringVar, IntegerVar, BooleanVar, ChoiceVar
 
 # This is the job grouping within the Nautobot UI.
-name = "AD Example jobs"
+name = "Example Git Repo Jobs"
 
 # This is the job being imported.
 class Ex02_Inputs(Job):

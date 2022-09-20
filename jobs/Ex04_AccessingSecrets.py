@@ -8,7 +8,7 @@ from nautobot.extras.jobs import BooleanVar
 from nautobot.extras.models.secrets import Secret
 
 # This is the job grouping within the Nautobot UI.
-name = "AD Example jobs"
+name = "Example Git Repo Jobs"
 
 # This is the job being imported.
 class Ex04_AccessingSecrets(Job):
