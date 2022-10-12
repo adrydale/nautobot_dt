@@ -14,11 +14,11 @@ name = "Example Git Repo Jobs"
 # This is the job being imported. We include "Job" in the class definition
 # because our new class/Nautobot job will extend the built in functions that
 # Nautobot Jobs have.
-class Ex07_ExternalSys_Meraki(Job):
+class ExES01_ExternalSys_Meraki(Job):
   # The Meta class within the job class is used for job extensible data
   class Meta():
     # This is what the job will be named in the UI.
-    name = "Example 07 - External Systems - Meraki"
+    name = "Example - External Systems - 01 - Meraki"
     # The first line of the description will be displayed but other lines will
     # only be displayed on job details.
     description = """
